@@ -1,0 +1,22 @@
+{
+  "name": "template-vuepack",
+  "scripts": {
+    "test": "echo lol"
+  },
+  "dependencies": {},
+  "version": "0.0.1",
+  "repository": {
+    "url": "git@github.com:MTDP-BFE/vpack.git",
+    "type": "git"
+  },
+  "author": "yangzj1992 <yangzj1992@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
