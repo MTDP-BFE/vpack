@@ -1,2 +1,2 @@
-import 'webpack-dev-server/client?/'
-import 'webpack/hot/dev-server'
+import 'webpack-dev-server/client?/';
+import 'webpack/hot/dev-server';

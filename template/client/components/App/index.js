@@ -1,11 +1,11 @@
-import './style.css'
+import './style.css';
 
 export default {
-  render(h) {
-    return (
-      <div id="app">
-        <router-view></router-view>
-      </div>
-    )
-  }
+    render(h) {
+        return (
+            <div id="app">
+                <router-view></router-view>
+            </div>
+        )
+    }
 }
