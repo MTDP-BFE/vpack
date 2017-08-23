@@ -33,6 +33,11 @@
       "postcss-nested": {}
     }
   },
+  {{#eslint}}
+  "pre-commit": [
+    "lint"
+  ],
+  {{/eslint}}
   "browserslist": ["last 2 versions", "ie > 8"],
   "dependencies": {
     "babel-runtime": "^6.18.0",
@@ -60,6 +65,7 @@
     "eslint-config-vue": "latest",
     "eslint-config-bfe": "latest",
     "eslint-plugin-vue": "latest",
+    "pre-commit": "^1.2.2",
     {{#testcafe}}
     "eslint-plugin-testcafe": "^0.2.0",
     {{/testcafe}}
