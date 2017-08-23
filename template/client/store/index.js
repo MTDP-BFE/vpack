@@ -19,7 +19,7 @@ const mutations = {
 const actions = {
     incrementAsync({ commit }) {
         setTimeout(() => {
-            commit('INCREMENT')
+            commit('INCREMENT');
         }, 200);
     }
 };
