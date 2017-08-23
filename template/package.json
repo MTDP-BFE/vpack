@@ -34,9 +34,9 @@
     }
   },
   {{#eslint}}
-  "pre-commit": [
-    "lint"
-  ],
+  "git-pre-hooks": {
+    "pre-commit": "npm run lint"
+  },
   {{/eslint}}
   "browserslist": ["last 2 versions", "ie > 8"],
   "dependencies": {
@@ -65,7 +65,7 @@
     "eslint-config-vue": "latest",
     "eslint-config-bfe": "latest",
     "eslint-plugin-vue": "latest",
-    "pre-commit": "^1.2.2",
+    "git-pre-hooks": "^1.2.0",
     {{#testcafe}}
     "eslint-plugin-testcafe": "^0.2.0",
     {{/testcafe}}
