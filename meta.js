@@ -1,4 +1,11 @@
-{
+module.exports = {
+  "helpers": {
+    "if_not": function (item, options) {
+      if (!item) {
+        return options.fn(this);
+      }
+    }
+  },
   "prompts": {
     "name": {
       "type": "string",
@@ -17,11 +24,19 @@
     },
     "eslint": {
       "type": "confirm",
-      "message": "Do you want to use ESLint?"
+      "message": "Do you want to use ESLint(With BFE ESLint)?"
     },
     "lodash": {
       "type": "confirm",
       "message": "Do you want to use lodash?"
+    },
+    "api": {
+      "type": "confirm",
+      "message": "Do you want to have API case?"
+    },
+    "bfui": {
+      "type": "confirm",
+      "message": "Do you want to use BFUI?"
     },
     "jsx": {
       "type": "confirm",
@@ -40,6 +55,7 @@
     }
   },
   "filters": {
+    "client/service/*": "api",
     "client/components/*.vue": "!jsx",
     "client/components/**/*.{js,css}": "jsx",
     "client/views/*.vue": "!jsx",
@@ -48,5 +64,5 @@
     ".eslintrc": "eslint",
     "test/e2e/*": "testcafe"
   },
-  "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev{{#electron}}\n\nIn another tab:\n\n  npm run app{{/electron}}"
+  "completeMessage": "vpack had build {{destDirName}} 🎉\n\nTo get started: 🤔\n\n  cd {{destDirName}}\n  npm install\n  npm run dev{{#electron}}\n\nIn another tab:\n\n  npm run app{{/electron}}"
 }

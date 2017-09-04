@@ -40,6 +40,9 @@
   {{/eslint}}
   "browserslist": ["last 2 versions", "ie > 8"],
   "dependencies": {
+    {{#api}}
+    "axios": "^0.16.2",
+    {{/api}}
     "babel-runtime": "^6.18.0",
     "promise-polyfill": "^6.0.2",
     "vue": "^2.2.0",
@@ -52,6 +55,9 @@
     "babel-core": "^6.16.0",
     "babel-loader": "^6.2.4",
     "babel-preset-vue-app": "^1.1.1",
+    {{#bfui}}
+    "bfui": "^0.0.3",
+    {{/bfui}}
     "chalk": "^1.1.3",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
