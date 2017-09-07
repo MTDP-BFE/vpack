@@ -2,14 +2,13 @@
     <div class="counter-wrapper">
         {{#if_not bfui}}
         <div class="counter">
-            \{{ count }}
+            \{{ counter.count }}
         </div>
-        <button @click="$store.commit('INCREMENT')">Increment</button>
-        <button @click="$store.commit('DECREMENT')">Decrement</button>
-        <button @click="$store.dispatch('incrementAsync')">Increment Async</button>
+        <button @click="handleByNum('plus')">Increment</button>
+        <button @click="handleByNum('minus')">Decrement</button>
         {{/if_not}}
         {{#bfui}}
-        <el-input-number class="counter" v-model="number" @change="handleByNum" :min="1" :max="10"></el-input-number>
+        <el-input-number class="counter" v-model="counter.count" @change="handleByNum" :min="1" :max="10"></el-input-number>
         {{/bfui}}
     </div>
 </template>
@@ -19,36 +18,35 @@ import { mapState } from 'vuex';
 export default {
     {{#if_not bfui}}
     computed: {
-        ...mapState({
-            counter(counter){
-                return counter;
+        ...mapState([
+            'counter'
+        ])
+    },
+    methods: {
+        handleByNum: function(type) {
+            let v;
+            if (type === 'plus') {
+                v = this.counter.count + 1;
+            } else {
+                v = this.counter.count - 1;
             }
-        })
-        // count() {
-        //     return this.$store.state.count;
-        // }
+            this.$store.dispatch('handleByNum', v);
+        }
     }
     {{/if_not}}
     {{#bfui}}
     computed: {
-        ...mapState({
-            count(counter){
-                return counter.count;
-            }
-        })
-    },
-    data() {
-        return {
-            number: this.count
-        };
+        ...mapState([
+            'counter'
+        ])
     },
     methods: {
-        handleByNum: function(){
+        handleByNum: function(v) {
             this.$store.dispatch('handleByNum', v);
         }
     }
     {{/bfui}}
-}
+};
 </script>
 
 <style>

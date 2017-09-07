@@ -6,9 +6,18 @@ fixture `Index page`
 const page = new IndexPage();
 
 test('first test', async t => {
-    await t.expect(page.counter.innerText).contains('0')
+    {{#if_not bfui}}
+    await t.expect(page.counter.innerText).contains('1')
         .click(page.increment)
-        .expect(page.counter.innerText).contains('1')
+        .expect(page.counter.innerText).contains('2')
         .click(page.desrement)
-        .expect(page.counter.innerText).contains('0');
+        .expect(page.counter.innerText).contains('1');
+    {{/if_not}}
+    {{#bfui}}
+    await t.expect(page.counter.innerText).contains('1')
+        .click(page.increment)
+        .expect(page.counter.innerText).contains('2')
+        .click(page.desrement)
+        .expect(page.counter.innerText).contains('1');
+    {{/bfui}}
 });

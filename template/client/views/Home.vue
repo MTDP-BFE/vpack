@@ -7,10 +7,16 @@
 
 <script>
 import Counter from 'components/Counter';
+import * as api from './../api/interface';
 
 export default {
     components: {
         Counter
+    },
+    created: () => {
+      {{#api}}
+      api.getTestData();
+      {{/api}}
     }
 }
 </script>

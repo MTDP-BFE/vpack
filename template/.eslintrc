@@ -1,4 +1,7 @@
 {
+    "parserOptions": {
+      "ecmaVersion": 8
+    },
     "extends": ["vue","eslint-config-bfe"],{{#testcafe}}
     "plugins": ["testcafe"],{{/testcafe}}
     "rules": {

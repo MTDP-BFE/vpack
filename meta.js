@@ -38,11 +38,6 @@ module.exports = {
       "type": "confirm",
       "message": "Do you want to use BFUI?"
     },
-    "jsx": {
-      "type": "confirm",
-      "message": "Generate components in JSX format?",
-      "default": false
-    },
     "electron": {
       "type": "confirm",
       "message": "Support Electron?",
@@ -56,10 +51,7 @@ module.exports = {
   },
   "filters": {
     "client/service/*": "api",
-    "client/components/*.vue": "!jsx",
-    "client/components/**/*.{js,css}": "jsx",
-    "client/views/*.vue": "!jsx",
-    "client/views/**/*.{js,css}": "jsx",
+    "client/api/*": "api",
     "app/*": "electron",
     ".eslintrc": "eslint",
     "test/e2e/*": "testcafe"
