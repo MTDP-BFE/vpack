@@ -5,6 +5,10 @@
 </template>
 
 <style>
+html, body {
+    height: 100%;
+    background: #eee;
+}
 body {
     margin: 0;
     font-size: 2rem;

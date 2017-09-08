@@ -20,16 +20,11 @@ service.interceptors.request.use(
         return config;
     },
     error => {
-        {{#if_not bfui}}
-        alert('报错信息');
-        {{/if_not}}
-        {{#bfui}}
         Message({
             showClose: true,
             type: 'warning',
             message: '报错信息'
         });
-        {{/bfui}}
         return Promise.reject(error);
     }
 );
@@ -38,10 +33,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     res => {
         if (res.data && res.data.code > 0) {
-            {{#if_not bfui}}
             alert('报错信息');
-            {{/if_not}}
-            {{#bfui}}
             Message({
                 showClose: true,
                 type: 'warning',
@@ -49,22 +41,17 @@ service.interceptors.response.use(
                     ? res.data.message
                     : '报错信息'
             });
-            {{/bfui}}
             return Promise.reject(res.data.message);
         }
         return res;
     },
     error => {
-        {{#if_not bfui}}
         alert('报错信息');
-        {{/if_not}}
-        {{#bfui}}
         Message({
             showClose: true,
             type: 'warning',
             message: '报错信息'
         });
-        {{/bfui}}
         return Promise.reject(error);
     }
 );

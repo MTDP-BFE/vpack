@@ -1,22 +1,19 @@
 <template>
     <div class="page">
-        <counter></counter>
-        <p>To get started, edit files in <code>./client</code> and save.</p>
+        <nav-bar></nav-bar>
     </div>
 </template>
 
 <script>
-import Counter from 'components/Counter';
+import navBar from 'components/nav/Nav';
 import * as api from './../api/interface';
 
 export default {
     components: {
-        Counter
+        navBar
     },
     created: () => {
-      {{#api}}
-      api.getTestData();
-      {{/api}}
+        api.getTestData();
     }
 }
 </script>

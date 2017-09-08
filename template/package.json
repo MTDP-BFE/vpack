@@ -7,9 +7,8 @@
     "test": "{{#testcafe}}testcafe all test/e2e/index.js --app \"npm run dev\" --app-init-delay 10000{{/testcafe}}",
     "build": "webpack --config build/webpack.prod.js",
     "dev": "node build/server.js"{{#electron}},
-    "app": "cross-env NODE_ENV=development electron app/"{{/electron}}{{#eslint}},
+    "app": "cross-env NODE_ENV=development electron app/"{{/electron}},
     "lint": "xo **/client/**/*.{vue,js}{{#electron}} **/app/**/*.js{{/electron}} !node_modules/**"
-    {{/eslint}}
   },
   "author": "{{ author }}",
   "license": "MIT",
@@ -33,16 +32,12 @@
       "postcss-nested": {}
     }
   },
-  {{#eslint}}
   "git-pre-hooks": {
     "pre-commit": "npm run lint"
   },
-  {{/eslint}}
   "browserslist": ["last 2 versions", "ie > 8"],
   "dependencies": {
-    {{#api}}
     "axios": "^0.16.2",
-    {{/api}}
     "babel-runtime": "^6.18.0",
     "promise-polyfill": "^6.0.2",
     "vue": "^2.2.0",
@@ -55,9 +50,7 @@
     "babel-core": "^6.16.0",
     "babel-loader": "^6.2.4",
     "babel-preset-vue-app": "^1.1.1",
-    {{#bfui}}
     "bfui": "^0.0.3",
-    {{/bfui}}
     "chalk": "^1.1.3",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
@@ -66,7 +59,6 @@
     "electron-devtools-installer": "^2.0.1",
     "electron": "^1.4.2",
     {{/electron}}
-    {{#eslint}}
     "xo": "^0.18.0",
     "eslint-config-vue": "latest",
     "eslint-config-bfe": "latest",
@@ -75,7 +67,6 @@
     {{#testcafe}}
     "eslint-plugin-testcafe": "^0.2.0",
     {{/testcafe}}
-    {{/eslint}}
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.9.0",
