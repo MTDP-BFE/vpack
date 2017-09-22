@@ -1,12 +1,4 @@
 <script>
-/**
- *
- * 想递归去渲染导航，因为没有导航都有子导航，如果写模板的话要写很多，且之后如果导航变的话模板也要做对应改变
- * 有template时好像无法使用render
- * template中没有办法向react一样使用jsx
- * 所以就使用了render去做了处理，递归的渲染导航
- *
-*/
 import menuLists from './nav.config';
 export default {
     name: 'Nav',
@@ -83,7 +75,21 @@ export default {
 
 <style>
 .el-menu{
+    font-size: 16px;
     background: #fff;
+    .el-menu-item{
+        height: 50px;
+        line-height: 50px;
+    }
+    .el-submenu{
+        .el-submenu__title{
+            height: 50px;
+            line-height: 50px;
+            &:hover{
+                background-color: #fff;
+            }
+        }
+    }
     .logo{
         font-size: 24px;
     }
@@ -108,15 +114,19 @@ export default {
         }
         .search-input{
             width: auto;
+            height: 50px;
+            line-height: 50px;
         }
         .bfui-icon-question-circle{
             margin-left: 30px;
         }
         .user-name{
-            position: relative;
-            top: -2px;
             margin: 0 20px;
         }
+    }
+
+    .el-submenu:hover .el-submenu__title{
+        border-bottom-color: #fff;
     }
 }
 </style>
