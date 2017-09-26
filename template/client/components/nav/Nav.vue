@@ -60,7 +60,7 @@ export default {
                         <li class="el-submenu right-list">
                             <div class="el-submenu__title">
                                 <i class="bfui-icon-book search-icon"></i>
-                                <el-input class="search-input" v-model="input" placeholder="请输入内容"></el-input>
+                                <el-input class="search-input" placeholder="请输入内容"></el-input>
                                 <i class="bfui-icon-question-circle"></i>
                                 <span class="user-name">张三</span>
                             </div>
