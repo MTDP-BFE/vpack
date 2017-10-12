@@ -14,6 +14,7 @@ export default {
     },
     created: () => {
         api.getTestData();
+        api.postTestData();
     }
 }
 </script>

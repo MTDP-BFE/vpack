@@ -15,7 +15,7 @@ service.interceptors.request.use(
             config.method === 'delete'
         ) {
             // 序列化
-            config.data = qs.stringify(config.data);
+            config.data = qs.parse(config.data);
         }
         return config;
     },
