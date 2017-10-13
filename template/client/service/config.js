@@ -48,5 +48,5 @@ export default {
     },
     // 用于node.js
     httpAgent: new http.Agent({ keepAlive: true }),
-    httpsAgent: new https.Agent({ keepAlive: true }),
+    httpsAgent: new https.Agent({ keepAlive: true })
 };
