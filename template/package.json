@@ -56,6 +56,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
     "cross-env": "^2.0.0",
+    "cz-conventional-changelog": "^2.0.0",
     {{#electron}}
     "electron-devtools-installer": "^2.0.1",
     "electron": "^1.4.2",
@@ -89,5 +90,10 @@
     "vue-template-compiler": "^2.2.0",
     "webpack": "2.2.0",
     "webpack-dev-server": "^2.6.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
