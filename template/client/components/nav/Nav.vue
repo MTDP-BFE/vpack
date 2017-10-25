@@ -9,8 +9,8 @@
                 <div class="el-submenu__title">
                     <el-input class="search-input" placeholder="搜索库表,指标,Dashboard等" @keyup.enter.native="searchResource" ref="navSearch"></el-input>
                     <i class="bfui-icon bfui-icon-search search-icon" @click="searchResource"></i>
-                    <i class="bfui-icon bfui-icon-book search-resource"></i>
-                    <i class="bfui-icon bfui-icon-question-circle help"></i>
+                    <i class="bfui-icon bfui-icon-book search-resource" @click="backHome"></i>
+                    <i class="bfui-icon bfui-icon-question-circle help" @click="backHome"></i>
                     <el-dropdown>
                         <span class="el-dropdown-link user-header">
                             <img class="user" :src="userImg" width="30px"></img>
@@ -19,7 +19,7 @@
                             <div class="cq-header-user-drop">
                                 <div class="header-user">
                                     <img class="user-img" :src="userImg" width="40px"></img>
-                                    <div class="user-name">{{userName}}</div>
+                                    <div class="user-name">张三疯</div>
                                 </div>
                                 <div class="drop-item logout" @click="logout">
                                     <i class="bfui-icon bfui-icon-sign-out"></i>
@@ -67,6 +67,7 @@ export default {
 <style lang="postcss">
 .cq-header-menu {
     background: #fff;
+    box-shadow: 0 1px 5px 0 rgba(194,203,221,0.84);
     .el-menu-item {
         height: 50px;
         line-height: 50px;
