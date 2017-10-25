@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style>
+<style lang="postcss">
 html, body {
     height: 100%;
     background: #eee;

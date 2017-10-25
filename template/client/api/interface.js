@@ -13,7 +13,6 @@ const url = 'http://easy-mock.com/mock/5948977d8ac26d795f409ac7/test/test';
 
 const url2 = 'http://easy-mock.com/mock/59094a1d7a878d73716e82c7/api/list2';
 
-
 export const getTestData = async (sendData) => {
     const data = await request({
         url: url,

@@ -1,6 +1,6 @@
 /**
- * count 计数器
+ * Count 计数器
  */
 export default {
-    count: 1 // 计数器
+    count: 1
 };

@@ -17,7 +17,7 @@ const RESOURCE_MANAGEMENT = 'RESOURCE_MANAGEMENT';
 const SQL_QUERY = 'SQL_QUERY';
 // 指标提取工具
 const QUOTA_TOOL = 'QUOTA_TOOL';
-// dashboard
+// Dashboard
 const DASHBOARD = 'DASHBOARD';
 // 邮件报表
 const EMAIL_REPORT = 'EMAIL_REPORT';
@@ -29,89 +29,110 @@ const AUTHORITY_MANAGEMENT = 'AUTHORITY_MANAGEMENT';
 const ON_OFF_LINE_MANAGEMENT = 'ON_OFF_LINE_MANAGEMENT';
 // 指标管理
 const QUOTA_MANAGEMENT = 'QUOTA_MANAGEMENT';
-// portal
+// Portal
 const PORTAL = 'PORTAL';
 
-export default [
-    {
-        key: MY_BOARD,
-        value: '我的看板',
-        url: null,
-        submenu: false
-    },
-    {
-        key: QUERY,
-        value: '查询',
-        submenu: true,
-        children: [
-            {
-                key: SQL_QUERY,
-                value: 'SQL查询',
-                url: null,
-                submenu: false
-            },
-            {
-                key: QUOTA_TOOL,
-                value: '指标提取工具',
-                url: null,
-                submenu: false
-            }
-        ]
-    },
-    {
-        key: ANALYSE_APPLY,
-        value: '分析应用',
-        submenu: true,
-        children: [
-            {
-                key: DASHBOARD,
-                value: 'dashboard',
-                url: null,
-                submenu: false
-            },
-            {
-                key: EMAIL_REPORT,
-                value: '邮件报表',
-                url: null,
-                submenu: false
-            },
-            {
-                key: FETCH_TEMPLATE,
-                value: '取数模板',
-                url: null,
-                submenu: false
-            }
-        ]
-    },
-    {
-        key: RESOURCE_MANAGEMENT,
-        value: '资源管理',
-        submenu: true,
-        children: [
-            {
-                key: AUTHORITY_MANAGEMENT,
-                value: '权限管理',
-                url: null,
-                submenu: false
-            },
-            {
-                key: ON_OFF_LINE_MANAGEMENT,
-                value: '上线线管理',
-                url: null,
-                submenu: false
-            },
-            {
-                key: QUOTA_MANAGEMENT,
-                value: '指标管理',
-                url: null,
-                submenu: false
-            },
-            {
-                key: PORTAL,
-                value: 'portal',
-                url: null,
-                submenu: false
-            }
-        ]
-    }
-];
+export default {
+    menuLists: [
+        {
+            key: MY_BOARD,
+            value: '我的看板',
+            url: null,
+            submenu: false
+        },
+        {
+            key: QUERY,
+            value: '查询',
+            submenu: true,
+            children: [
+                {
+                    key: QUERY,
+                    value: '查询',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: SQL_QUERY,
+                    value: 'SQL查询',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: QUOTA_TOOL,
+                    value: '指标提取工具',
+                    url: null,
+                    submenu: false
+                }
+            ]
+        },
+        {
+            key: ANALYSE_APPLY,
+            value: '分析应用',
+            submenu: true,
+            children: [
+                {
+                    key: ANALYSE_APPLY,
+                    value: '分析应用',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: DASHBOARD,
+                    value: 'Dashboard',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: EMAIL_REPORT,
+                    value: '邮件报表',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: FETCH_TEMPLATE,
+                    value: '取数模板',
+                    url: null,
+                    submenu: false
+                }
+            ]
+        },
+        {
+            key: RESOURCE_MANAGEMENT,
+            value: '资源管理',
+            submenu: true,
+            children: [
+                {
+                    key: RESOURCE_MANAGEMENT,
+                    value: '资源管理',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: AUTHORITY_MANAGEMENT,
+                    value: '权限管理',
+                    url: 'http://www.baidu.com',
+                    submenu: false
+                },
+                {
+                    key: ON_OFF_LINE_MANAGEMENT,
+                    value: '上线管理',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: QUOTA_MANAGEMENT,
+                    value: '指标管理',
+                    url: null,
+                    submenu: false
+                },
+                {
+                    key: PORTAL,
+                    value: 'Portal',
+                    url: null,
+                    submenu: false
+                }
+            ]
+        }
+    ]
+};
+

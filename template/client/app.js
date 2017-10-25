@@ -5,6 +5,7 @@ import 'bfui/lib/theme-default/index.css';
 import App from './components/App';
 import router from './router';
 import store from './store';
+
 Vue.use(bfui);
 sync(store, router);
 

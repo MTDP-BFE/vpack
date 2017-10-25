@@ -5,7 +5,10 @@
     "extends": ["vue","eslint-config-bfe"],{{#testcafe}}
     "plugins": ["testcafe"],{{/testcafe}}
     "rules": {
+        "arrow-parens": 0,
         "import/no-unresolved": 0,
-        "import/no-unassigned-import": 0
+        "import/no-unassigned-import": 0,
+        "import/prefer-default-export": 0,
+        "object-shorthand": 0
     }
 }

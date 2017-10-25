@@ -1,6 +1,7 @@
 import http from 'http';
 import https from 'https';
 import qs from 'qs';
+
 export default {
     baseURL: '/',
     // 请求前的数据处理
@@ -28,7 +29,7 @@ export default {
     adapter: function(resolve, reject, config) {},
     // 响应的数据格式 json / blob /document /arraybuffer / text / stream
     responseType: 'json',
-    // xsrf 设置
+    // XSRF 设置
     xsrfCookieName: 'XSRF-TOKEN',
     xsrfHeaderName: 'X-XSRF-TOKEN',
 

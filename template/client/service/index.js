@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
-import config from './config';
 import { Message } from 'bfui';
+import config from './config';
 
 const service = axios.create({ config });
 
