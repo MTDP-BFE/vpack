@@ -8,7 +8,7 @@ const _ = require('./utils');
 
 module.exports = {
     entry: {
-        client: './client/index.js'
+        client: './client/index.ts'
     },
     output: {
         path: _.outputPath,
@@ -23,7 +23,7 @@ module.exports = {
         hints: process.env.NODE_ENV === 'production' ? 'warning' : false
     },
     resolve: {
-        extensions: ['.js', '.vue', '.css', '.json'],
+        extensions: ['ts', '.js', '.vue', '.css', '.json'],
         alias: {
             root: path.join(__dirname, '../client'),
             components: path.join(__dirname, '../client/components')
@@ -42,10 +42,21 @@ module.exports = {
                 loaders: ['vue-loader']
             },
             {
-                test: /\.js$/,
-                loaders: ['babel-loader'],
-                exclude: [/node_modules/]
-            },
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                  appendTsSuffixTo: [/\.vue$/],
+                }
+              },
+              {{#lint}}
+              {
+                test: /\.tsx?$/,
+                loader: 'tslint-loader',
+                exclude: /node_modules/,
+                enforce: 'pre'
+              },
+              {{/lint}}
             {
                 test: /\.es6$/,
                 loaders: ['babel-loader']

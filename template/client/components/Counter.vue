@@ -13,8 +13,14 @@
     </div>
 </template>
 
-<script>
-import { mapState } from 'vuex';
+<script lang="ts">
+import { State, namespace } from 'vuex-class';
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component
+export default class Counter extends Vue {
+    @State(state => state.counter) counter:
+}
 export default {
     {{#if_not bfui}}
     computed: {
