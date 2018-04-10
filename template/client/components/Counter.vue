@@ -1,28 +1,44 @@
 <template>
     <div class="counter-wrapper">
-        {{#if_not bfui}}
+        {{#if_not useUI}}
         <div class="counter">
             \{{ counter.count }}
         </div>
         <button @click="handleByNum('plus')">Increment</button>
         <button @click="handleByNum('minus')">Decrement</button>
         {{/if_not}}
-        {{#bfui}}
+        {{#useUI}}
         <el-input-number class="counter" v-model="counter.count" @change="handleByNum" :min="1" :max="10"></el-input-number>
-        {{/bfui}}
+        {{/useUI}}
     </div>
 </template>
 
 <script lang="ts">
-import { State, namespace } from 'vuex-class';
 import { Vue, Component } from 'vue-property-decorator';
+import { Action, State, namespace } from 'vuex-class';
+import { ActionContext, Store } from 'vuex';
 
 @Component
 export default class Counter extends Vue {
-    @State(state => state.counter) counter:
+    @State(state => state.counter) counter: StoreState.Counter;
+    @Action('handleByNum') handleByNumAction: StoreAction.HandleByNumAction;
+
+    handleByNum (type: string): void {
+        let count: number;
+        if (type === 'plus') {
+            count = this.counter.count + 1;
+        } else {
+            count = this.counter.count - 1;
+        }
+        const test = (s: string) => {
+            console.log(s);
+        };
+        this.handleByNumAction({ count });
+        // this.$store.dispatch('handleByNum', 'asdf');
+    }
 }
 export default {
-    {{#if_not bfui}}
+    {{#if_not useUI}}
     computed: {
         ...mapState([
             'counter'
@@ -40,7 +56,7 @@ export default {
         }
     }
     {{/if_not}}
-    {{#bfui}}
+    {{#useUI}}
     computed: {
         ...mapState([
             'counter'
@@ -51,21 +67,21 @@ export default {
             this.$store.dispatch('handleByNum', v);
         }
     }
-    {{/bfui}}
+    {{/useUI}}
 };
 </script>
 
 <style>
 .counter {
-    {{#if_not bfui}}
+    {{#if_not useUI}}
     height: 200px;
     margin: 100px auto;
     line-height: 200px;
     font-size: 5rem;
     {{/if_not}}
-    {{#bfui}}
+    {{#useUI}}
     margin: 200px auto 50px;
-    {{/bfui}}
+    {{/useUI}}
     border-radius: 3px;
     width: 200px;
     text-align: center;

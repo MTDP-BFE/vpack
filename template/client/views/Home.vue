@@ -5,18 +5,21 @@
     </div>
 </template>
 
-<script>
-import Counter from 'components/Counter';
-import * as api from './../api/interface';
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+import Counter from '../components/Counter.vue';
+import * as api from './../api/';
 
-export default {
+@Component({
     components: {
         Counter
-    },
-    created: () => {
-      {{#api}}
-      api.getTestData();
-      {{/api}}
+    }
+})
+export default class Home extends Vue {
+    created () {
+        api.getCityWeather({ city: encodeURIComponent('北京') }).then(res => {
+            console.log(res);
+        });
     }
 }
 </script>

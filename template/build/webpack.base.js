@@ -23,8 +23,9 @@ module.exports = {
         hints: process.env.NODE_ENV === 'production' ? 'warning' : false
     },
     resolve: {
-        extensions: ['ts', '.js', '.vue', '.css', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.vue', '.css', '.json'],
         alias: {
+            vue$: 'vue/dist/vue.esm.js',
             root: path.join(__dirname, '../client'),
             components: path.join(__dirname, '../client/components')
         },
@@ -42,21 +43,19 @@ module.exports = {
                 loaders: ['vue-loader']
             },
             {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                enforce: 'pre',
+                loader: 'tslint-loader'
+            },
+            {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
-                  appendTsSuffixTo: [/\.vue$/],
+                    appendTsSuffixTo: [/\.vue$/]
                 }
-              },
-              {{#lint}}
-              {
-                test: /\.tsx?$/,
-                loader: 'tslint-loader',
-                exclude: /node_modules/,
-                enforce: 'pre'
-              },
-              {{/lint}}
+            },
             {
                 test: /\.es6$/,
                 loaders: ['babel-loader']

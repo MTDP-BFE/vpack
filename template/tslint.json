@@ -2,7 +2,10 @@
     "extends": "tslint-config-standard",
     "rules": {
         "await-promise": { "severity": "off" },
-        "no-consecutive-blank-lines": false
+        "indent": [true, "spaces", 4],
+        "no-consecutive-blank-lines": false,
+        "semicolon": [true, "always"],
+        "ter-indent": [true, 4]
     }
   }
   

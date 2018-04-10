@@ -34,6 +34,32 @@ module.exports = {
       "type": "confirm",
       "message": "Do you want to have API case?"
     },
+    "useUI": {
+      "type": "confirm",
+      "message": "Do you want to use BFUI or ElementUI"
+    }
+    "UIConfig": {
+      "when": "useUI",
+      "type": "list",
+      "message": "Pick an UI library",
+      "choices": [
+        {
+          "name": "BFUI",
+          "value": "bfui",
+          "short": "bfui"
+        },
+        {
+          "name": "ElementUI",
+          "value": "ElementUI",
+          "short": "ElementUI"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    }
     "bfui": {
       "type": "confirm",
       "message": "Do you want to use BFUI?"

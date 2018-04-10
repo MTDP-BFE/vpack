@@ -1,1 +1,1 @@
-export const counter = state => state.count;
+export const counter = (state: StoreState.Counter) => state.count;

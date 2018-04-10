@@ -1,7 +1,13 @@
 import axios from 'axios';
 import qs from 'qs';
 import config from './config';
+{{#useUI}}
+{{#if_eq lintConfig "bfui"}}
 import { Message } from 'bfui';
+{{/if_eq}}
+{{#if_eq lintConfig "ElementUI"}}
+import { Message } from 'element-ui';
+{{/if_eq}}
 
 const service = axios.create({ config });
 
@@ -20,16 +26,16 @@ service.interceptors.request.use(
         return config;
     },
     error => {
-        {{#if_not bfui}}
+        {{#if_not useUI}}
         alert('报错信息');
         {{/if_not}}
-        {{#bfui}}
+        {{#useUI}}
         Message({
             showClose: true,
             type: 'warning',
             message: '报错信息'
         });
-        {{/bfui}}
+        {{/useUI}}
         return Promise.reject(error);
     }
 );
@@ -38,10 +44,10 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     res => {
         if (res.data && res.data.code > 0) {
-            {{#if_not bfui}}
+            {{#if_not useUI}}
             alert('报错信息');
             {{/if_not}}
-            {{#bfui}}
+            {{#useUI}}
             Message({
                 showClose: true,
                 type: 'warning',
@@ -49,22 +55,22 @@ service.interceptors.response.use(
                     ? res.data.message
                     : '报错信息'
             });
-            {{/bfui}}
+            {{/useUI}}
             return Promise.reject(res.data.message);
         }
         return res;
     },
     error => {
-        {{#if_not bfui}}
+        {{#if_not useUI}}
         alert('报错信息');
         {{/if_not}}
-        {{#bfui}}
+        {{#useUI}}
         Message({
             showClose: true,
             type: 'warning',
             message: '报错信息'
         });
-        {{/bfui}}
+        {{/useUI}}
         return Promise.reject(error);
     }
 );
