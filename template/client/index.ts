@@ -17,6 +17,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI);
 {{/if_eq}}
+{{/useUI}}
 sync(store, router);
 // Enable progressive web app support (with offline-plugin)
 if (process.env.NODE_ENV === 'production') {
