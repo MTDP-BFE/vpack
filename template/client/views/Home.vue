@@ -23,7 +23,12 @@ export default class Home extends Vue {
     created () {
         this.getTodayWeatherAction({ city: '北京' }).then((res: Ajax.AjaxResponse) => {
             const { low, high, type } = res.data.forecast[0];
+            {{#useUI}}
+            this.$message(`北京今日：${type} ${low} - ${high}`);
+            {{/useUI}}
+            {{#if_not useUI}}
             alert(`北京今日：${type} ${low} - ${high}`);
+            {{/if_not}}
         });
     }
     {{/api}}

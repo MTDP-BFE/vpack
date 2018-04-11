@@ -1,15 +1,10 @@
 <template>
     <div class="counter-wrapper">
-        {{#if_not useUI}}
         <div class="counter">
             \{{ counter.count }}
         </div>
         <button @click="handleByNum('plus')">Increment</button>
         <button @click="handleByNum('minus')">Decrement</button>
-        {{/if_not}}
-        {{#useUI}}
-        <el-input-number class="counter" v-model="counter.count" @change="handleByNum" :min="1" :max="10"></el-input-number>
-        {{/useUI}}
     </div>
 </template>
 
@@ -37,15 +32,10 @@ export default class Counter extends Vue {
 
 <style>
 .counter {
-    {{#if_not useUI}}
     height: 200px;
     margin: 100px auto;
     line-height: 200px;
     font-size: 5rem;
-    {{/if_not}}
-    {{#useUI}}
-    margin: 200px auto 50px;
-    {{/useUI}}
     border-radius: 3px;
     width: 200px;
     text-align: center;
