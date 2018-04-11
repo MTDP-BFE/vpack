@@ -30,10 +30,6 @@ module.exports = {
       "type": "confirm",
       "message": "Do you want to use lodash?"
     },
-    "api": {
-      "type": "confirm",
-      "message": "Do you want to have API case?"
-    },
     "useUI": {
       "type": "confirm",
       "message": "Do you want to use BFUI or ElementUI"
@@ -59,15 +55,6 @@ module.exports = {
           "short": "none"
         }
       ]
-    },
-    "bfui": {
-      "type": "confirm",
-      "message": "Do you want to use BFUI?"
-    },
-    "electron": {
-      "type": "confirm",
-      "message": "Support Electron?",
-      "default": false
     },
     "testcafe": {
       "type": "confirm",

@@ -7,7 +7,7 @@ module.exports = {
     // See https://webpack.js.org/configuration/dev-server
     devServer: {
         host: 'localhost',
-        port: 4000
+        port: 4000,
         proxy: {
             '/weatherApi': {
                 changeOrigin: true,
