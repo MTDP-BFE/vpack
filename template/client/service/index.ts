@@ -1,10 +1,10 @@
 import axios from 'axios';
 import qs from 'qs';
 import config from './config';
-{{#if_eq lintConfig "bfui"}}
+{{#if_eq UIConfig "bfui"}}
 import { Message } from 'bfui';
 {{/if_eq}}
-{{#if_eq lintConfig "ElementUI"}}
+{{#if_eq UIConfig "ElementUI"}}
 import { Message } from 'element-ui';
 {{/if_eq}}
 

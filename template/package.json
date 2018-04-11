@@ -62,10 +62,10 @@
     "babel-core": "^6.16.0",
     "babel-loader": "^6.2.4",
     "babel-preset-vue-app": "^1.1.1",
-    {{#if_eq lintConfig "bfui"}}
+    {{#if_eq UIConfig "bfui"}}
     "bfui": "^0.0.3",
     {{/if_eq}}
-    {{#if_eq lintConfig "ElementUI"}}
+    {{#if_eq UIConfig "ElementUI"}}
     "element-ui": "^2.0.7",
     {{/if_eq}}
     "chalk": "^1.1.3",
