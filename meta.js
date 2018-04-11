@@ -38,8 +38,7 @@ module.exports = {
   "filters": {
     "client/service/*": "api",
     "client/api/*": "api",
-    "client/types/ajax.d.ts": "api",
-    "test/e2e/*": "testcafe"
+    "client/types/ajax.d.ts": "api"
   },
   "completeMessage": "vpack had build {{destDirName}} 🎉\n\nTo get started: 🤔\n\n  cd {{destDirName}}\n  npm install\n  npm run dev{{#electron}}\n\nIn another tab:\n\n  npm run app{{/electron}}"
 }
