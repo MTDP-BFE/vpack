@@ -37,7 +37,7 @@ module.exports = {
     "useUI": {
       "type": "confirm",
       "message": "Do you want to use BFUI or ElementUI"
-    }
+    },
     "UIConfig": {
       "when": "useUI",
       "type": "list",
@@ -59,7 +59,7 @@ module.exports = {
           "short": "none"
         }
       ]
-    }
+    },
     "bfui": {
       "type": "confirm",
       "message": "Do you want to use BFUI?"
