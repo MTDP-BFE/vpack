@@ -10,9 +10,8 @@ declare namespace StoreAction {
     }
     export interface HandleByNumAction {
         (count: HandleNumParam): void;
-    }
-
-    {{#api}}
+    }{{#api}}
+    
     export interface GetTodayWeatherParam {
         city: string
     }

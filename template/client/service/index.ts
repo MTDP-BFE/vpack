@@ -1,14 +1,12 @@
 import axios from 'axios';
 import qs from 'qs';
 import config from './config';
-{{#useUI}}
 {{#if_eq lintConfig "bfui"}}
 import { Message } from 'bfui';
 {{/if_eq}}
 {{#if_eq lintConfig "ElementUI"}}
 import { Message } from 'element-ui';
 {{/if_eq}}
-{{/useUI}}
 
 const service = axios.create(config);
 
