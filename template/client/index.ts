@@ -1,16 +1,22 @@
+import './promise-polyfill';
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 import App from './components/App.vue';
 import router from './router';
 import store from './store';
-{{#bfui}}
+{{#useUI}}
+{{#if_eq lintConfig "bfui"}}
 import bfui from 'bfui';
 import 'bfui/lib/theme-default/index.css';
-{{/bfui}}
-import './promise-polyfill';
-{{#bfui}}
+
 Vue.use(bfui);
-{{/bfui}}
+{{/if_eq}}
+{{#if_eq lintConfig "ElementUI"}}
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.use(ElementUI);
+{{/if_eq}}
 sync(store, router);
 // Enable progressive web app support (with offline-plugin)
 if (process.env.NODE_ENV === 'production') {

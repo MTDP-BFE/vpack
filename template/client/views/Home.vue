@@ -8,7 +8,9 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import Counter from '../components/Counter.vue';
+{{#api}}
 import * as api from './../api/';
+{{/api}}
 
 @Component({
     components: {
@@ -16,10 +18,12 @@ import * as api from './../api/';
     }
 })
 export default class Home extends Vue {
+    {{#api}}
     created () {
         api.getCityWeather({ city: encodeURIComponent('北京') }).then(res => {
             console.log(res);
         });
     }
+    {{/api}}
 }
 </script>
