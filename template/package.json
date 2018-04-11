@@ -45,9 +45,7 @@
     {{/lodash}}
     "@types/node": "^9.6.2",
     "@types/promise-polyfill": "^6.0.0",
-    {{#api}}
     "axios": "^0.16.2",
-    {{/api}}
     "babel-runtime": "^6.18.0",
     "promise-polyfill": "^6.0.2",
     "vue": "^2.5.2",
