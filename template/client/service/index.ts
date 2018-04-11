@@ -8,6 +8,7 @@ import { Message } from 'bfui';
 {{#if_eq lintConfig "ElementUI"}}
 import { Message } from 'element-ui';
 {{/if_eq}}
+{{/useUI}}
 
 const service = axios.create({ config });
 
