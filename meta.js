@@ -22,10 +22,6 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
-    "eslint": {
-      "type": "confirm",
-      "message": "Do you want to use ESLint(With BFE ESLint)?"
-    },
     "lodash": {
       "type": "confirm",
       "message": "Do you want to use lodash?"
@@ -37,19 +33,12 @@ module.exports = {
     "useUI": {
       "type": "confirm",
       "message": "Do you want to use ElementUI"
-    },
-    "testcafe": {
-      "type": "confirm",
-      "message": "Add testcafe to run integration tests?",
-      "default": false
     }
   },
   "filters": {
     "client/service/*": "api",
     "client/api/*": "api",
     "client/types/ajax.d.ts": "api",
-    "app/*": "electron",
-    ".eslintrc": "eslint",
     "test/e2e/*": "testcafe"
   },
   "completeMessage": "vpack had build {{destDirName}} 🎉\n\nTo get started: 🤔\n\n  cd {{destDirName}}\n  npm install\n  npm run dev{{#electron}}\n\nIn another tab:\n\n  npm run app{{/electron}}"
