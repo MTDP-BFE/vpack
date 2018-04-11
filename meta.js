@@ -69,6 +69,7 @@ module.exports = {
   "filters": {
     "client/service/*": "api",
     "client/api/*": "api",
+    "client/types/ajax.d.ts": "api",
     "app/*": "electron",
     ".eslintrc": "eslint",
     "test/e2e/*": "testcafe"

@@ -10,7 +10,6 @@ const mutations: MutationTree<StoreState.Counter> = {
     [types.HANDLE_BY_NUM] (state, count: number) {
         state.count = count;
     }
-    
 };
 
 export default mutations;

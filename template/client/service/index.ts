@@ -10,7 +10,7 @@ import { Message } from 'element-ui';
 {{/if_eq}}
 {{/useUI}}
 
-const service = axios.create({ config });
+const service = axios.create(config);
 
 // POST传参序列化(添加请求拦截器)
 service.interceptors.request.use(
@@ -44,7 +44,8 @@ service.interceptors.request.use(
 // 返回状态判断(添加响应拦截器)
 service.interceptors.response.use(
     res => {
-        if (res.data && res.data.code > 0) {
+        const data = res.data;
+        if (data && data.code !== 0 && data.code !== 200) {
             {{#if_not useUI}}
             alert('报错信息');
             {{/if_not}}
@@ -52,12 +53,12 @@ service.interceptors.response.use(
             Message({
                 showClose: true,
                 type: 'warning',
-                message: res.data.code > -1
-                    ? res.data.message
+                message: data.code > -1
+                    ? data.message
                     : '报错信息'
             });
             {{/useUI}}
-            return Promise.reject(res.data.message);
+            return Promise.reject(data.message);
         }
         return res;
     },

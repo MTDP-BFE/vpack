@@ -30,45 +30,9 @@ export default class Counter extends Vue {
         } else {
             count = this.counter.count - 1;
         }
-        const test = (s: string) => {
-            console.log(s);
-        };
         this.handleByNumAction({ count });
-        // this.$store.dispatch('handleByNum', 'asdf');
     }
 }
-export default {
-    {{#if_not useUI}}
-    computed: {
-        ...mapState([
-            'counter'
-        ])
-    },
-    methods: {
-        handleByNum: function(type) {
-            let v;
-            if (type === 'plus') {
-                v = this.counter.count + 1;
-            } else {
-                v = this.counter.count - 1;
-            }
-            this.$store.dispatch('handleByNum', v);
-        }
-    }
-    {{/if_not}}
-    {{#useUI}}
-    computed: {
-        ...mapState([
-            'counter'
-        ])
-    },
-    methods: {
-        handleByNum: function(v) {
-            this.$store.dispatch('handleByNum', v);
-        }
-    }
-    {{/useUI}}
-};
 </script>
 
 <style>

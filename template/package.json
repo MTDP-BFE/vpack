@@ -100,16 +100,19 @@
     "offline-plugin": "^4.5.3",
     "postcss-loader": "^0.9.1",
     "postcss-nested": "^1.0.0",
+    {{#api}}
+    "qs": "^6.5.1",
+    {{/api}}
     "rimraf": "^2.6.1",
     "style-loader": "^0.13.1",
     {{#testcafe}}
     "testcafe": "^0.12.1",
     {{/testcafe}}
     "ts-loader": "^3.5.0",
-    "typescript": "^2.7.2",
     "tslint": "^5.8.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-loader": "^3.5.3",
+    "typescript": "^2.7.2",
     "vue-loader": "^11.0.0",
     "vue-template-compiler": "^2.2.0",
     "webpack": "2.2.0",
