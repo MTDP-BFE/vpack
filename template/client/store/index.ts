@@ -3,8 +3,7 @@ import Vuex from 'vuex';
 import counter from './modules/counter';
 
 Vue.use(Vuex);
-
-const debug = process.env.NODE_ENV !== 'production';
+const debug: boolean = process.env.NODE_ENV !== 'production';
 
 const store = new Vuex.Store({
     modules: {

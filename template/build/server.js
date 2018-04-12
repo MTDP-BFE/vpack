@@ -17,7 +17,7 @@ const host = devServerOptions.host;
 const port = devServerOptions.port;
 
 webpackConfig.entry.client = [
-    path.join(__dirname, '../client/dev-client.js'),
+    path.join(__dirname, './dev-client.js'),
     webpackConfig.entry.client
 ];
 

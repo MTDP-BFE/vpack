@@ -6,10 +6,7 @@
   "scripts": {
     "test": "{{#testcafe}}testcafe all test/e2e/index.js --app \"npm run dev\" --app-init-delay 10000{{/testcafe}}",
     "build": "webpack --config build/webpack.prod.js",
-    "dev": "node build/server.js"{{#electron}},
-    "app": "cross-env NODE_ENV=development electron app/"{{/electron}}{{#eslint}},
-    "lint": "xo **/client/**/*.{vue,js}{{#electron}} **/app/**/*.js{{/electron}} !node_modules/**"
-    {{/eslint}}
+    "dev": "node build/server.js"
   },
   "author": "{{ author }}",
   "license": "MIT",
@@ -33,51 +30,39 @@
       "postcss-nested": {}
     }
   },
-  {{#eslint}}
-  "git-pre-hooks": {
-    "pre-commit": "npm run lint"
-  },
-  {{/eslint}}
   "browserslist": ["last 2 versions", "ie > 8"],
   "dependencies": {
+    {{#lodash}}
+    "@types/lodash": "^4.14.104",
+    {{/lodash}}
+    "@types/node": "^9.6.2",
+    "@types/promise-polyfill": "^6.0.0",
     {{#api}}
     "axios": "^0.16.2",
     {{/api}}
     "babel-runtime": "^6.18.0",
     "promise-polyfill": "^6.0.2",
-    "vue": "^2.2.0",
-    "vue-router": "^2.0.0",
-    "vuex": "^2.0.0",
-    "vuex-router-sync": "^4.0.0"
+    "vue": "^2.5.2",
+    "vue-property-decorator": "^6.0.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.0",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^6.4.0",
-    "babel-core": "^6.16.0",
-    "babel-loader": "^6.2.4",
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.1",
     "babel-preset-vue-app": "^1.1.1",
-    {{#bfui}}
-    "bfui": "^0.0.3",
-    {{/bfui}}
+    {{#useUI}}
+    "element-ui": "^2.0.7",
+    {{/useUI}}
     "chalk": "^1.1.3",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
     "cross-env": "^2.0.0",
-    {{#electron}}
-    "electron-devtools-installer": "^2.0.1",
-    "electron": "^1.4.2",
-    {{/electron}}
-    {{#eslint}}
-    "xo": "^0.18.0",
-    "eslint-config-vue": "latest",
-    "eslint-config-bfe": "latest",
-    "eslint-plugin-vue": "latest",
-    "git-pre-hooks": "^1.2.0",
-    {{#testcafe}}
-    "eslint-plugin-testcafe": "^0.2.0",
-    {{/testcafe}}
-    {{/eslint}}
     "express": "^4.14.0",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.9.0",
     "friendly-errors-webpack-plugin": "^1.1.2",
     "html-webpack-plugin": "^2.22.0",
@@ -88,14 +73,19 @@
     "offline-plugin": "^4.5.3",
     "postcss-loader": "^0.9.1",
     "postcss-nested": "^1.0.0",
+    {{#api}}
+    "qs": "^6.5.1",
+    {{/api}}
     "rimraf": "^2.6.1",
     "style-loader": "^0.13.1",
-    {{#testcafe}}
-    "testcafe": "^0.12.1",
-    {{/testcafe}}
+    "ts-loader": "^3.5.0",
+    "tslint": "^5.8.0",
+    "tslint-config-standard": "^7.0.0",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.7.2",
     "vue-loader": "^11.0.0",
     "vue-template-compiler": "^2.2.0",
-    "webpack": "2.2.0",
-    "webpack-dev-server": "^2.6.1"
+    "webpack": "3.6.0",
+    "webpack-dev-server": "^2.9.1"
   }
 }

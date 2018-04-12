@@ -1,65 +1,41 @@
 <template>
     <div class="counter-wrapper">
-        {{#if_not bfui}}
         <div class="counter">
             \{{ counter.count }}
         </div>
         <button @click="handleByNum('plus')">Increment</button>
         <button @click="handleByNum('minus')">Decrement</button>
-        {{/if_not}}
-        {{#bfui}}
-        <el-input-number class="counter" v-model="counter.count" @change="handleByNum" :min="1" :max="10"></el-input-number>
-        {{/bfui}}
     </div>
 </template>
 
-<script>
-import { mapState } from 'vuex';
-export default {
-    {{#if_not bfui}}
-    computed: {
-        ...mapState([
-            'counter'
-        ])
-    },
-    methods: {
-        handleByNum: function(type) {
-            let v;
-            if (type === 'plus') {
-                v = this.counter.count + 1;
-            } else {
-                v = this.counter.count - 1;
-            }
-            this.$store.dispatch('handleByNum', v);
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+import { Action, State, namespace } from 'vuex-class';
+import { ActionContext, Store } from 'vuex';
+
+@Component
+export default class Counter extends Vue {
+    @State(state => state.counter) counter: StoreState.Counter;
+    @Action('handleByNum') handleByNumAction: StoreAction.HandleByNumAction;
+
+    handleByNum (type: string): void {
+        let count: number;
+        if (type === 'plus') {
+            count = this.counter.count + 1;
+        } else {
+            count = this.counter.count - 1;
         }
+        this.handleByNumAction({ count });
     }
-    {{/if_not}}
-    {{#bfui}}
-    computed: {
-        ...mapState([
-            'counter'
-        ])
-    },
-    methods: {
-        handleByNum: function(v) {
-            this.$store.dispatch('handleByNum', v);
-        }
-    }
-    {{/bfui}}
-};
+}
 </script>
 
 <style>
 .counter {
-    {{#if_not bfui}}
     height: 200px;
     margin: 100px auto;
     line-height: 200px;
     font-size: 5rem;
-    {{/if_not}}
-    {{#bfui}}
-    margin: 200px auto 50px;
-    {{/bfui}}
     border-radius: 3px;
     width: 200px;
     text-align: center;

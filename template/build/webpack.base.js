@@ -8,7 +8,7 @@ const _ = require('./utils');
 
 module.exports = {
     entry: {
-        client: './client/index.js'
+        client: './client/index.ts'
     },
     output: {
         path: _.outputPath,
@@ -23,8 +23,9 @@ module.exports = {
         hints: process.env.NODE_ENV === 'production' ? 'warning' : false
     },
     resolve: {
-        extensions: ['.js', '.vue', '.css', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.vue', '.css', '.json'],
         alias: {
+            vue$: 'vue/dist/vue.esm.js',
             root: path.join(__dirname, '../client'),
             components: path.join(__dirname, '../client/components')
         },
@@ -42,9 +43,18 @@ module.exports = {
                 loaders: ['vue-loader']
             },
             {
-                test: /\.js$/,
-                loaders: ['babel-loader'],
-                exclude: [/node_modules/]
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                enforce: 'pre',
+                loader: 'tslint-loader'
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/]
+                }
             },
             {
                 test: /\.es6$/,

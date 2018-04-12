@@ -5,18 +5,32 @@
     </div>
 </template>
 
-<script>
-import Counter from 'components/Counter';
-import * as api from './../api/interface';
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+{{#api}}
+import { Action } from 'vuex-class';
+{{/api}}
+import Counter from '../components/Counter.vue';
 
-export default {
+@Component({
     components: {
         Counter
-    },
-    created: () => {
-      {{#api}}
-      api.getTestData();
-      {{/api}}
     }
+})
+export default class Home extends Vue {
+    {{#api}}
+    @Action('getTodayWeather') getTodayWeatherAction: StoreAction.GetTodayWeatherAction;
+    created () {
+        this.getTodayWeatherAction({ city: '北京' }).then((res: Ajax.AjaxResponse) => {
+            const { low, high, type } = res.data.forecast[0];
+            {{#useUI}}
+            this.$message(`北京今日：${type} ${low} - ${high}`);
+            {{/useUI}}
+            {{#if_not useUI}}
+            alert(`北京今日：${type} ${low} - ${high}`);
+            {{/if_not}}
+        });
+    }
+    {{/api}}
 }
 </script>

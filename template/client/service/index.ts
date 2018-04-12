@@ -1,9 +1,11 @@
 import axios from 'axios';
 import qs from 'qs';
 import config from './config';
-import { Message } from 'bfui';
+{{#useUI}}
+import { Message } from 'element-ui';
+{{/useUI}}
 
-const service = axios.create({ config });
+const service = axios.create(config);
 
 // POST传参序列化(添加请求拦截器)
 service.interceptors.request.use(
@@ -20,16 +22,16 @@ service.interceptors.request.use(
         return config;
     },
     error => {
-        {{#if_not bfui}}
+        {{#if_not useUI}}
         alert('报错信息');
         {{/if_not}}
-        {{#bfui}}
+        {{#useUI}}
         Message({
             showClose: true,
             type: 'warning',
             message: '报错信息'
         });
-        {{/bfui}}
+        {{/useUI}}
         return Promise.reject(error);
     }
 );
@@ -37,34 +39,35 @@ service.interceptors.request.use(
 // 返回状态判断(添加响应拦截器)
 service.interceptors.response.use(
     res => {
-        if (res.data && res.data.code > 0) {
-            {{#if_not bfui}}
+        const data = res.data;
+        if (data && data.code !== 0 && data.code !== 200) {
+            {{#if_not useUI}}
             alert('报错信息');
             {{/if_not}}
-            {{#bfui}}
+            {{#useUI}}
             Message({
                 showClose: true,
                 type: 'warning',
-                message: res.data.code > -1
-                    ? res.data.message
+                message: data.code > -1
+                    ? data.message
                     : '报错信息'
             });
-            {{/bfui}}
-            return Promise.reject(res.data.message);
+            {{/useUI}}
+            return Promise.reject(data.message);
         }
         return res;
     },
     error => {
-        {{#if_not bfui}}
+        {{#if_not useUI}}
         alert('报错信息');
         {{/if_not}}
-        {{#bfui}}
+        {{#useUI}}
         Message({
             showClose: true,
             type: 'warning',
             message: '报错信息'
         });
-        {{/bfui}}
+        {{/useUI}}
         return Promise.reject(error);
     }
 );
