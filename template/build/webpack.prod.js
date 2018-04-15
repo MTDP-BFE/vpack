@@ -8,7 +8,7 @@ const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const OfflinePlugin = require('offline-plugin');
 const rm = require('rimraf');
 const baseWebpackConfig = require('./webpack.base');
-const pkg = require('../package');
+// const pkg = require('../package');
 const utils = require('./utils');
 const config = require('./config');
 
@@ -18,8 +18,6 @@ if (config.electron) {
 } else {
     // remove dist folder in web app mode
     rm.sync('dist/*');
-    // use source-map in web app mode
-    base.devtool = 'source-map';
 }
 
 const prodWebpackConfig = merge(baseWebpackConfig, {
@@ -64,12 +62,12 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
         new OfflinePlugin({
             relativePaths: false,
             ServiceWorker: {
-                events:true,
-                navigateFallbackURL:'/'
+                events: true,
+                navigateFallbackURL: '/'
             },
             AppCache: {
-                events:true,
-                FALLBACK:{ '/':'/' }
+                events: true,
+                FALLBACK: { '/': '/' }
             }
         })
     ],
@@ -83,7 +81,6 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
         chunkOrigins: false,
         modules: false
     }
-    
-})
+});
 
 module.exports = prodWebpackConfig;

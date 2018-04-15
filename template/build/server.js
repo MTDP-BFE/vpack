@@ -1,7 +1,7 @@
 'use strict';
-const fs = require('fs');
+// const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk');
+// const chalk = require('chalk');
 const express = require('express');
 const webpack = require('webpack');
 const Server = require('webpack-dev-server');

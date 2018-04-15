@@ -9,8 +9,8 @@ const FriendlyErrors = require('friendly-errors-webpack-plugin');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
     devtool: 'eval-source-map',
-    module : {
-        rules: utils.styleLoaders({sourceMap: true, usePostCSS: true})
+    module: {
+        rules: utils.styleLoaders({ sourceMap: true, usePostCSS: true })
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -20,6 +20,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         new webpack.NoEmitOnErrorsPlugin(),
         new FriendlyErrors()
     ]
-})
+});
 
 module.exports = devWebpackConfig;

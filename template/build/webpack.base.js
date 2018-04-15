@@ -1,14 +1,14 @@
 'use strict';
 const path = require('path');
 const utils = require('./utils');
-const webpack = require('webpack');
-const vueLoaderConfig = require('./vue-loader.conf')
+// const webpack = require('webpack');
+const vueLoaderConfig = require('./vue-loader.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const config = require('./config');
 
-function resolve (dir) {
-    return path.join(__dirname, '..', dir)
+function resolve(dir) {
+    return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
@@ -30,6 +30,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.css', '.json'],
         alias: {
+            vue: 'vue/dist/vue.js',
             root: path.join(__dirname, '../client'),
             components: path.join(__dirname, '../client/components')
         },
@@ -39,20 +40,20 @@ module.exports = {
         ]
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.vue$/,
-                loaders: ['vue-loader'],
+                loaders: 'vue-loader',
                 options: vueLoaderConfig
             },
             {
                 test: /\.js$/,
-                loaders: ['babel-loader'],
+                loaders: 'babel-loader',
                 exclude: [/node_modules/]
             },
             {
                 test: /\.es6$/,
-                loaders: ['babel-loader']
+                loaders: 'babel-loader'
             },
             {
                 test: /\.(ico|jpg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
