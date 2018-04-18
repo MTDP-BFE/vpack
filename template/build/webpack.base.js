@@ -62,7 +62,8 @@ module.exports = {
             },
             {
                 test: /\.js|es6$/,
-                loaders: ['babel-loader']
+                loaders: ['babel-loader'],
+                exclude: /node_modules/,
             },
             {
                 test: /\.(ico|jpg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,

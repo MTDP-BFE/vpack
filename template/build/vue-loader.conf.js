@@ -4,9 +4,13 @@ const isProduction = process.env.NODE_ENV === 'production'
 const sourceMapEnabled = !isProduction
 
 module.exports = {
-  loaders: utils.cssLoaders({
+  loaders: Object.assign(utils.cssLoaders({
     sourceMap: sourceMapEnabled,
     extract: isProduction
+  }), {
+      ts: {
+          loader: 'ts-loader!tslint-loader'
+      }
   }),
   cssSourceMap: sourceMapEnabled,
 //   cacheBusting: config.dev.cacheBusting,
