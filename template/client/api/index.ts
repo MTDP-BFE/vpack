@@ -1,5 +1,5 @@
-import * as request from './interface';
+import service from './../service/';
 
-export const getCityWeather = async (param: { city: string }) => {
-    return request.get('/weatherApi', param);
+export const getCityWeather = async (params: { city: string }) => {
+    return service.get('/weatherApi', { params });
 };
