@@ -36,6 +36,7 @@
     "@types/lodash": "^4.14.104",
     {{/lodash}}
     "@types/node": "^9.6.2",
+    "@types/qs": "^6.5.1",
     "@types/promise-polyfill": "^6.0.0",
     {{#api}}
     "axios": "^0.16.2",
