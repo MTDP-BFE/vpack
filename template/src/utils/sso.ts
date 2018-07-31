@@ -32,7 +32,7 @@ const sso = {
   },
   setCurrentURL () {
     const currentURL = window.location.href
-    if (!currentURL.includes('/callback')) {
+    if (!currentURL.includes('/ssocallback')) {
       Cookies.set('currentURL', currentURL)
     }
   },
