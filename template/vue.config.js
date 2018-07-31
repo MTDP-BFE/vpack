@@ -16,13 +16,13 @@ if (process.env === 'development') {
   }
 }
 {{/portm}}
-// portm 模拟数据地址: http://portm.sankuai.com/api-groups/edit/{{ portmProjectToken }}
+// portm 模拟数据地址: http://portm.{{ mtHost }}/api-groups/edit/{{ portmProjectToken }}
 let proxyTable = {
   {{#portm}}
   '^/api': {
-    target: 'http://portm.sankuai.com',
+    target: 'http://portm.{{ mtHost }}',
     headers: {
-      'host': 'portm.sankuai.com',
+      'host': 'portm.{{ mtHost }}',
       'Portm-Target': '{{ portmTarget }}',
       'Portm-Token': '{{ portmProjectToken }}',
       'Portm-User': portm && portm.userToken
@@ -30,10 +30,10 @@ let proxyTable = {
   },
   {{#watermark}}
   '^/api-wm/*': {
-    target: 'http://portm.sankuai.com',
+    target: 'http://portm.{{ mtHost }}',
     changeOrigin: true,
     headers: {
-      'host': 'portm.sankuai.com',
+      'host': 'portm.{{ mtHost }}',
       'Portm-Target': '{{ portmTarget }}',
       'Portm-Token': '{{ portmProjectToken }}',
       'Portm-User': portm && portm.userToken
